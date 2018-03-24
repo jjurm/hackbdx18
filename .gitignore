@@ -132,4 +132,4 @@ typings/
 
 .idea
 src/**/*.js
-
+!src/js/*.js
