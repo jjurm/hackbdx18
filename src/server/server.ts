@@ -1,6 +1,12 @@
 import * as http from "http";
 import app from "./app";
 import WebSocket from "ws";
+import {GenericMsg} from "../messages";
+import {isWhiteSpace} from "tslint";
+import {User} from "../user";
+import {Server} from "./classes";
+
+let server = new Server();
 
 export function runWebServer() {
     const server = http.createServer(app);
@@ -10,11 +16,15 @@ export function runWebServer() {
         //const location = url.parse(req.url!, true);
         console.log("Accepted WS connetion");
 
+
         conn.on('message', function incoming(message: string) {
-            //let msg = JSON.parse(message) as AbcMessage;
-            console.log(message);
+            let msg = JSON.parse(message) as GenericMsg;
+            console.log(msg);
+
+
         });
         conn.on('err', () => console.log("WS err"));
+        conn.on('close', () => console.log("WS close"));
 
         /*let msg = new UpdateMessage(8);
         conn.send(JSON.stringify(msg));*/
@@ -27,34 +37,6 @@ export function runWebServer() {
 
 }
 
+
+
 runWebServer();
-
-/*export function runWebsocketServer() {
-
-    const WebSocket = require('ws');
-
-    const wss = new WebSocket.Server({
-        port: 8080,
-        perMessageDeflate: {
-            zlibDeflateOptions: { // See zlib defaults.
-                chunkSize: 1024,
-                memLevel: 7,
-                level: 3,
-            },
-            zlibInflateOptions: {
-                chunkSize: 10 * 1024
-            },
-            // Other options settable:
-            clientNoContextTakeover: true, // Defaults to negotiated value.
-            serverNoContextTakeover: true, // Defaults to negotiated value.
-            clientMaxWindowBits: 10,       // Defaults to negotiated value.
-            serverMaxWindowBits: 10,       // Defaults to negotiated value.
-            // Below options specified as default values.
-            concurrencyLimit: 10,          // Limits zlib concurrency for perf.
-            threshold: 1024,               // Size (in bytes) below which messages
-                                           // should not be compressed.
-        }
-    });
-
-
-}*/
