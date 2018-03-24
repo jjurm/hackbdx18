@@ -23,7 +23,7 @@ export function reconnectWebsocket() {
 }
 
 function doWebsocketConnection() {
-    let ws = new WebSocket("ws://sq.jjurm.com:8080");
+    let ws = new WebSocket("ws://sq.jjurm.com:9101");
 
     ws.onopen = event => {
         console.log("Socket connected");
