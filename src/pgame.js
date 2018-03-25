@@ -155,6 +155,11 @@ Map.preload = function()
     this.load.image('character', 'images/character' + avatarChosen + '.png');   
 };
 
+var BTNshooter;
+var BTNtheCage;
+var BTNpacman;
+var BTNtrivia;
+
 Map.create = function()
 {
     this.add.image(400, 300, 'background');
@@ -163,10 +168,10 @@ Map.create = function()
     this.character.setScale(0.2);
 
     // buttons
-    var BTNshooter = this.add.image(30, 30, 'button');
-    var BTNtheCage = this.add.image(theCage.x, theCage.y, 'transparentButton');
-    var BTNpacman = this.add.image(pacman.x, pacman.y, 'transparentButton');
-    var BTNtrivia = this.add.image(trivia.x, trivia.y, 'transparentButton');
+    BTNshooter = this.add.image(30, 30, 'button');
+    BTNtheCage = this.add.image(theCage.x, theCage.y, 'transparentButton');
+    BTNpacman = this.add.image(pacman.x, pacman.y, 'transparentButton');
+    BTNtrivia = this.add.image(trivia.x, trivia.y, 'transparentButton');
 
     //  Make the buttons input-enabled
     BTNshooter.setInteractive();
@@ -314,3 +319,28 @@ Shooter.create= function()
 {
     this.add.image(400, 300, 'background');
 };
+
+
+//========= Bindings ==========
+function bNewUser(user) {
+
+}
+
+function bMove(user, place) {
+    if (place = 'cage'){// the user want to go to the cage
+        handlerBTNtheCage(BTNtheCage);
+    };
+
+    if (place = 'trivia'){// the user want to go to the cage
+        handlerBTNtrivia(BTNtrivia);
+    };
+
+    if (place = 'pacman'){// the user want to go to the cage
+        handlerBTNpacman(BTNpacman);
+    };
+}
+
+function bLaunchGame(){
+    handlerLaunchGame();
+};
+

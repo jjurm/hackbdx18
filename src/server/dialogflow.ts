@@ -44,6 +44,7 @@ export function processDfRequest(request: any): DFResponse {
 
         case "move":
             let place = request.result.parameters.place;
+            console.log("Moving user from " + user.place + " to "+place);
             if (place) {
                 user.place = place;
                 forOwnedScreens(user, client => client.sendMessage(MoveMsg.type, new MoveMsg(place)));
