@@ -7,6 +7,7 @@ App.prototype.start = function()
     // Scenes
     var scenes = [];
 
+    //scenes.push(Map);
     scenes.push(Avatars);
     scenes.push(Map);
     scenes.push(Shooter);
@@ -52,10 +53,16 @@ var pacman = {x: 740, y: 210};
 var trivia = {x: 605, y: 460};
 
 
+var avatarChosen = 1;//the number of the avatar chosen. to prevent errors, we set a default.
+
 /**********************************
 *********- A V A T A R S -*********
 **********************************/
 var Avatars = new Phaser.Scene('Avatars');
+
+var index = 1;//the index to loop on the list of avatars
+var avatarSizes = {small: 0.3, big:0.8};
+var avatarTable = [];
 
 Avatars.preload = function(){
     this.load.image('background', 'images/background.png');
@@ -63,17 +70,10 @@ Avatars.preload = function(){
     this.load.image('avatar2', 'images/character2.png');
     this.load.image('avatar3', 'images/character3.png');
     this.load.image('transparentButton', 'images/transparentButton.png');
+    
 };
 
 Avatars.create = function(){
-    //add the buttons
-    var BTNnextAvatar = this.add.image(580, 350, 'transparentButton');
-    var BTNconfirmAvatar = this.add.image(400, 380, 'transparentButton');
-    
-    //make them interactive
-    BTNnextAvatar.setInteractive();
-    BTNconfirmAvatar.setInteractive();
-    
     //add the images
     this.add.image(400, 300, 'background');
     this.avatar1 = this.add.image(200, 350, 'avatar1');
@@ -82,13 +82,32 @@ Avatars.create = function(){
     
 
     //rescale the images
-    var avatarSizes = {small: 0.3, big:0.8};
     this.avatar1.setScale(avatarSizes.small);
     this.avatar2.setScale(avatarSizes.big);
     this.avatar3.setScale(avatarSizes.small);
     
     // store all this in an array so we can loop on it later
-    var avatars = [this.avatar1, this.avatar2, this.avatar3];
+    avatarTable = [this.avatar1, this.avatar2, this.avatar3];
+    
+    
+    //add the buttons
+    var BTNnextAvatar = this.add.image(780, 400, 'transparentButton');
+    var BTNconfirmAvatar = this.add.image(400, 580, 'transparentButton');
+    
+    //make them interactive
+    BTNnextAvatar.setInteractive();
+    BTNconfirmAvatar.setInteractive();
+    
+    //  The buttons will dispatch a 'clicked' event when they are clicked on
+    BTNnextAvatar.on('clicked', handlerBTNnextAvatar, this); 
+    BTNconfirmAvatar.on('clicked', handlerBTNconfirmAvatar, this, index);
+    
+    //  If a Game Object is clicked on, this event is fired.
+    //  We can use it to emit the 'clicked' event on the game object itself.
+    this.input.on('gameobjectup', function (pointer, gameObject)
+    {
+        gameObject.emit('clicked', gameObject);
+    }, this);
     
     //type the texts
     this.add.text(220, 30, 'Pick your avatar', {fontSize: '32px', fill: '#000'});
@@ -100,6 +119,22 @@ Avatars.update = function(){
 };
 
 
+//EVENT HANDLERS
+function handlerBTNnextAvatar(BTNnextAvatar){
+    index +=1;
+    console.log('next avatar, current index value is: ' + index);
+    console.log('mod: '+ index%3);
+    avatarTable[index%3].setScale(avatarSizes.big);
+    avatarTable[Math.abs((index%3+1)%3)].setScale(avatarSizes.small);
+    avatarTable[Math.abs((index%3+2)%3)].setScale(avatarSizes.small);
+};
+
+function handlerBTNconfirmAvatar(BTNconfirmAvatar){
+    console.log('confirm avatar');
+    avatarChosen = (index%3)+1;
+    console.log('chosen avatar number: ' + (avatarChosen));
+    this.scene.start('Map');
+};
 
 
 /********************************
@@ -113,11 +148,11 @@ Map.preload = function()
     this.load.image('map', 'images/map.png');
     this.load.image('button', 'images/button.png');
     this.load.image('transparentButton', 'images/transparentButton.png');
-    this.load.image('character', 'images/character1.png');
+    this.load.image('character', 'images/character' + avatarChosen + '.png');
     
 };
 
-Map.create= function()
+Map.create = function()
 {
     this.add.image(400, 300, 'background');
     this.add.image(400, 300, 'map');
@@ -136,7 +171,7 @@ Map.create= function()
     BTNpacman.setInteractive();
     BTNtrivia.setInteractive();
 
-    //  The images will dispatch a 'clicked' event when they are clicked on
+    //  The buttons will dispatch a 'clicked' event when they are clicked on
     BTNshooter.on('clicked', handlerBTNshooter, this);
     BTNtheCage.on('clicked', handlerBTNtheCage, this);
     BTNpacman.on('clicked', handlerBTNpacman, this);
@@ -160,7 +195,7 @@ Map.update= function()
 
 //EVENT HANDLERS
 function handlerBTNshooter (BTNshooter){
-    console.log("clicked");
+    console.log("shooter button clicked");
     this.scene.start('Shooter');
 };
 
