@@ -111,7 +111,7 @@ Avatars.create = function(){
     
     //type the texts
     this.add.text(220, 30, 'Pick your avatar', {fontSize: '32px', fill: '#000'});
-    this.add.text(130, 70, 'Say NEXT to go through the avatars, and CONFIRM to select', {fontSize: '16px', fill: '#000'});
+    this.add.text(130, 70, 'Say "NEXT" to go through the avatars, and "CONFIRM" to select', {fontSize: '16px', fill: '#000'});
 };
 
 Avatars.update = function(){
