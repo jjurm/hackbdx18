@@ -55,6 +55,8 @@ export function processDfRequest(request: any): DFResponse {
             }
             return new DFResponse("Sorry, " + name2 + " doesn't seem to be playing the game.");
 
+        case "whoami":
+            return new DFResponse("You are " + user.name);
 
         case "choose_avatar":
 
