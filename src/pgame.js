@@ -193,7 +193,6 @@ Map.create = function()
 Map.update= function()
 {
     'use strict';
-    //if ()
 };
 
 
