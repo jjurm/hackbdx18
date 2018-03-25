@@ -325,21 +325,19 @@ Shooter.create= function()
 
 
 //========= Bindings ==========
-function bNewUser(user) {
 
-}
-
-function bMove(user, place) {
-    if (place = 'cage'){// the user want to go to the cage
-        handlerBTNtheCage(BTNtheCage);
+function bMove(place) {
+    if (place == 'cage'){// the user want to go to the cage
+        //handlerBTNtheCage(BTNtheCage);
+        handlerBTNtheCage.apply(Map, BTNtheCage);
     };
 
-    if (place = 'trivia'){// the user want to go to the cage
-        handlerBTNtrivia(BTNtrivia);
+    if (place == 'trivia'){// the user want to go to the cage
+        handlerBTNtrivia.apply(Map, BTNtrivia);
     };
 
-    if (place = 'pacman'){// the user want to go to the cage
-        handlerBTNpacman(BTNpacman);
+    if (place == 'pacman'){// the user want to go to the cage
+        handlerBTNpacman.apply(Map, BTNpacman);
     };
 }
 

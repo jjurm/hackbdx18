@@ -37,7 +37,11 @@ export function processDfRequest(request: any): DFResponse {
                     count++;
                 }
             }
-            return new DFResponse("There are " + count + " people in the room.");
+            let resp;
+            if (count == 0) resp = "There is no one in the room.";
+            else if (count == 1) resp = "Only you are in the room.";
+            else resp = "There are " + count + " people in the room.";
+            return new DFResponse(resp);
 
         case "change_name":
             return new DFResponse("Ok, your name is changed");
@@ -46,6 +50,7 @@ export function processDfRequest(request: any): DFResponse {
             let place = request.result.parameters.place;
             console.log("Moving user from " + user.place + " to "+place);
             if (place) {
+                place = place.toLocaleLowerCase();
                 user.place = place;
                 forOwnedScreens(user, client => client.sendMessage(MoveMsg.type, new MoveMsg(place)));
                 return new DFResponse("You are now located in " + user.place);
