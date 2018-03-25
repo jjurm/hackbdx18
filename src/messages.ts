@@ -10,31 +10,50 @@ export class MessageWrapper {
         this.type = type;
         this.message = message;
     }
-
-    public getTypedMessage(): GenericMsg {
-        switch (this.type) {
-            case "create_user":
-                return this.message as CreateUserMsg;
-            default:
-                return this.message
-        }
-    }
 }
 
 export abstract class GenericMsg {
     public time: number;
 
-    constructor(time: number) {
-        this.time = time;
+    constructor() {
+        this.time = new Date().getTime();
     }
 }
 
-export class CreateUserMsg extends GenericMsg {
+// client to server
+export class AssignScreenToUserMsg extends GenericMsg {
+    public static type = "assignScreenToUser";
+    public id: string;
+
+    constructor(id: string) {
+        super();
+        this.id = id;
+    }
+}
+
+// server to client
+/*export class CreateUserMsg extends GenericMsg {
+    public static type = "create_user";
     public user: User;
 
-    constructor(time: number, user: User) {
-        super(time);
+    constructor(user: User) {
+        super();
         this.user = user;
+    }
+}*/
+
+// server to client
+export class MoveMsg extends GenericMsg {
+    public static type = "move";
+    public place: string;
+
+    constructor(place: string) {
+        super();
+        this.place = place;
     }
 }
 
+// server to client
+export class TestScreenMsg extends GenericMsg {
+    public static type = "test_screen";
+}

@@ -1,10 +1,11 @@
-import {User} from "../user";
+import {User, UserInfo} from "../user";
 import WebSocket from "ws";
+import {GenericMsg, MessageWrapper} from "../messages";
 
 export class Server {
     public clients: Array<Client> = [];
-    public usersMap: { [key: string]: User; } = {}
-
+    public usersList: Array<User> = [];
+    public usersMap: { [key: string]: User; } = {};
 }
 
 export class Client {
@@ -13,5 +14,10 @@ export class Client {
 
     constructor(ws: WebSocket) {
         this.ws = ws;
+    }
+
+    public sendMessage(type: string, msg: GenericMsg) {
+        let wrapper = new MessageWrapper(type, msg);
+        this.ws!.send(JSON.stringify(wrapper));
     }
 }

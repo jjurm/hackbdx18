@@ -23,7 +23,7 @@ export function reconnectWebsocket() {
 }
 
 function doWebsocketConnection() {
-    let ws = new WebSocket("wss://walkies.jjurm.com");
+    let ws = new WebSocket("wss://walkies.jjurm.com/websocket");
 
     ws.onopen = event => {
         console.log("Socket connected");
