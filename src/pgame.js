@@ -145,13 +145,6 @@ function handlerBTNconfirmAvatar(BTNconfirmAvatar){
 ************- M A P -************
 ********************************/
 var Map= new Phaser.Scene('Map');
-//set the positions for different points the player will move to
-var startPoint = {x: 265, y:140};
-var theCage = {x: 55, y: 210};
-var pacman = {x: 740, y: 210};
-var trivia = {x: 605, y: 460};
-var place;
-
 
 Map.preload = function()
 {
@@ -251,11 +244,10 @@ function moveToTrivia(Player){
 
 
 
-
-
 /*******************************
 *********- T R I V I A -********
 *******************************/
+var Trivia= new Phaser.Scene('Trivia');
 Trivia.preload = function(){
     
 };
@@ -274,6 +266,7 @@ Trivia.update = function(){
 /*******************************
 ***********- C A G E -**********
 *******************************/
+var Cage= new Phaser.Scene('Cage');
 Cage.preload = function(){
     
 };
@@ -292,6 +285,7 @@ Cage.update = function(){
 /*******************************
 *********- P A C M A N -********
 *******************************/
+var Pacman= new Phaser.Scene('Pacman');
 Pacman.preload = function(){
     
 };
