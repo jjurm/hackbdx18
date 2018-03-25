@@ -7,8 +7,10 @@ App.prototype.start = function()
     // Scenes
     var scenes = [];
 
+    scenes.push(Avatars);
     scenes.push(Map);
     scenes.push(Shooter);
+
 
     // Game config
     var config = {
@@ -49,6 +51,60 @@ var theCage = {x: 55, y: 210};
 var pacman = {x: 740, y: 210};
 var trivia = {x: 605, y: 460};
 
+
+/**********************************
+*********- A V A T A R S -*********
+**********************************/
+var Avatars = new Phaser.Scene('Avatars');
+
+Avatars.preload = function(){
+    this.load.image('background', 'images/background.png');
+    this.load.image('avatar1', 'images/character1.png');
+    this.load.image('avatar2', 'images/character2.png');
+    this.load.image('avatar3', 'images/character3.png');
+    this.load.image('transparentButton', 'images/transparentButton.png');
+};
+
+Avatars.create = function(){
+    //add the buttons
+    var BTNnextAvatar = this.add.image(580, 350, 'transparentButton');
+    var BTNconfirmAvatar = this.add.image(400, 380, 'transparentButton');
+    
+    //make them interactive
+    BTNnextAvatar.setInteractive();
+    BTNconfirmAvatar.setInteractive();
+    
+    //add the images
+    this.add.image(400, 300, 'background');
+    this.avatar1 = this.add.image(200, 350, 'avatar1');
+    this.avatar2 = this.add.image(400, 350, 'avatar2');
+    this.avatar3 = this.add.image(600, 350, 'avatar3');
+    
+
+    //rescale the images
+    var avatarSizes = {small: 0.3, big:0.8};
+    this.avatar1.setScale(avatarSizes.small);
+    this.avatar2.setScale(avatarSizes.big);
+    this.avatar3.setScale(avatarSizes.small);
+    
+    // store all this in an array so we can loop on it later
+    var avatars = [this.avatar1, this.avatar2, this.avatar3];
+    
+    //type the texts
+    this.add.text(220, 30, 'Pick your avatar', {fontSize: '32px', fill: '#000'});
+    this.add.text(130, 70, 'Say NEXT to go through the avatars, and CONFIRM to select', {fontSize: '16px', fill: '#000'});
+};
+
+Avatars.update = function(){
+    
+};
+
+
+
+
+/********************************
+************- M A P -************
+********************************/
 var Map= new Phaser.Scene('Map');
 
 Map.preload = function()
@@ -68,13 +124,13 @@ Map.create= function()
     this.character = this.add.image(startPoint.x, startPoint.y, 'character');
     this.character.setScale(0.2);
 
-    // button event
+    // buttons
     var BTNshooter = this.add.image(30, 30, 'button');
     var BTNtheCage = this.add.image(theCage.x, theCage.y, 'transparentButton');
     var BTNpacman = this.add.image(pacman.x, pacman.y, 'transparentButton');
     var BTNtrivia = this.add.image(trivia.x, trivia.y, 'transparentButton');
 
-    //  Make them all input enabled
+    //  Make the buttons input-enabled
     BTNshooter.setInteractive();
     BTNtheCage.setInteractive();
     BTNpacman.setInteractive();
@@ -102,7 +158,6 @@ Map.update= function()
 };
 
 
-
 //EVENT HANDLERS
 function handlerBTNshooter (BTNshooter){
     console.log("clicked");
@@ -125,7 +180,9 @@ function handlerBTNtrivia (BTNtrivia){
 };
 
 
-
+/*******************************
+********- S H O O T E R -*******
+*******************************/
 var Shooter= new Phaser.Scene('Shooter');
 Shooter.preload = function()
 {
