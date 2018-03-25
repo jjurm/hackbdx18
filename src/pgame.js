@@ -11,6 +11,7 @@ App.prototype.start = function()
     scenes.push(Avatars);
     scenes.push(Map);
     scenes.push(Shooter);
+    scenes.push(Trivia);
 
 
     // Game config
@@ -51,14 +52,15 @@ var startPoint = {x: 265, y:140};
 var theCage = {x: 55, y: 210};
 var pacman = {x: 740, y: 210};
 var trivia = {x: 605, y: 460};
+var place;
 
-
-var avatarChosen = 1;//the number of the avatar chosen. to prevent errors, we set a default.
 
 /**********************************
 *********- A V A T A R S -*********
 **********************************/
 var Avatars = new Phaser.Scene('Avatars');
+
+var avatarChosen = 1;//the number of the avatar chosen. to prevent errors, we set a default.
 
 var index = 1;//the index to loop on the list of avatars
 var avatarSizes = {small: 0.3, big:0.8};
@@ -141,6 +143,13 @@ function handlerBTNconfirmAvatar(BTNconfirmAvatar){
 ************- M A P -************
 ********************************/
 var Map= new Phaser.Scene('Map');
+//set the positions for different points the player will move to
+var startPoint = {x: 265, y:140};
+var theCage = {x: 55, y: 210};
+var pacman = {x: 740, y: 210};
+var trivia = {x: 605, y: 460};
+var place;
+
 
 Map.preload = function()
 {
@@ -148,8 +157,7 @@ Map.preload = function()
     this.load.image('map', 'images/map.png');
     this.load.image('button', 'images/button.png');
     this.load.image('transparentButton', 'images/transparentButton.png');
-    this.load.image('character', 'images/character' + avatarChosen + '.png');
-    
+    this.load.image('character', 'images/character' + avatarChosen + '.png');   
 };
 
 Map.create = function()
@@ -188,8 +196,7 @@ Map.create = function()
 Map.update= function()
 {
     'use strict';
-
-    // ...
+    //if ()
 };
 
 
@@ -214,6 +221,51 @@ function handlerBTNtrivia (BTNtrivia){
     moveToTrivia(this.character);
 };
 
+function handlerLaunchGame(){
+    if (place = 'cage'){
+        
+    }
+};
+
+
+//movement functions
+function moveToTheCage(Player){
+    place = 'cage';
+    Player.x = theCage.x;
+    Player.y = theCage.y;
+};
+
+function moveToPacman(Player){
+    place = 'pacman';
+    Player.x = pacman.x;
+    Player.y = pacman.y;
+};
+
+function moveToTrivia(Player){
+    place = 'trivia';
+    Player.x = trivia.x;
+    Player.y = trivia.y;
+};
+
+
+
+
+
+/*******************************
+*********- T R I V I A -********
+*******************************/
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*******************************
 ********- S H O O T E R -*******
@@ -227,22 +279,4 @@ Shooter.preload = function()
 Shooter.create= function()
 {
     this.add.image(400, 300, 'background');
-};
-
-
-
-//movement functions
-function moveToTheCage(Player){
-        Player.x = theCage.x;
-        Player.y = theCage.y;
-};
-
-function moveToPacman(Player){
-        Player.x = pacman.x;
-        Player.y = pacman.y;
-};
-
-function moveToTrivia(Player){
-        Player.x = trivia.x;
-        Player.y = trivia.y;
 };
