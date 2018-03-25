@@ -32,21 +32,33 @@ export function processDfRequest(request: any): DFResponse {
 
         case "room":
             let count = 0;
+            let names = [];
             for (let otherUser of server.usersList) {
                 if (user.place == otherUser.place) {
                     count++;
+                    names.push(otherUser.name);
                 }
             }
             let resp;
             if (count == 0) resp = "There is no one in the room.";
             else if (count == 1) resp = "Only you are in the room.";
-            else resp = "There are " + count + " people in the room.";
+            else resp = "There are " + count + " people in the room: " + names.join(", ");
+
             return new DFResponse(resp);
+
+        case "where_is":
+            let name2 = request.result.parameters.name;
+            for (let otherUser of server.usersList) {
+                if (otherUser.name.toLocaleLowerCase() == name2.toLocaleLowerCase()) {
+                    return new DFResponse(name2 + " is in " + otherUser.place);
+                }
+            }
+            return new DFResponse("Sorry, " + name2 + " doesn't seem to be playing the game.");
+
 
         case "choose_avatar":
 
             let ordinal = request.result.parameters.ordinal;
-            console.log(ordinal);
 
             forOwnedScreens(user, client => {
                 client.sendMessage(ChooseAvatarMsg.type, new ChooseAvatarMsg(ordinal));
@@ -55,7 +67,11 @@ export function processDfRequest(request: any): DFResponse {
             return new DFResponse("You chose avatar "+ordinal);
 
         case "change_name":
-            return new DFResponse("Ok, your name is changed");
+
+            let name = request.result.parameters.name;
+            user.name = name;
+
+            return new DFResponse("Ok, your name is changed to " + name);
 
         case "move":
             let place = request.result.parameters.place;
