@@ -19,9 +19,6 @@ App.prototype.start = function()
     // Game config
     var config = {
         type	: Phaser.AUTO,
-        //width	: 9  * 64,		// 576
-        //@ADAM : to properly display the map and move the character on it we need at least 800x400px, is it okay for you?
-        //height	: 15 * 64,		// 960
         width : 800,
         height : 600,
         parent	: 'phaser-app',
@@ -50,10 +47,10 @@ window.onload = function()
 
 
 //set the positions for different points the player will move to
-var startPoint = {x: 265, y:140};
-var theCage = {x: 55, y: 210};
-var pacman = {x: 740, y: 210};
-var trivia = {x: 605, y: 460};
+var startPoint = {x: 268, y:130};
+var theCage = {x: 60, y: 200};
+var pacman = {x: 740, y: 200};
+var trivia = {x: 605, y: 450};
 var place;
 
 
@@ -203,7 +200,8 @@ Map.update= function()
 //EVENT HANDLERS
 function handlerBTNshooter (BTNshooter){
     console.log("shooter button clicked");
-    this.scene.start('Shooter');
+    //this.scene.start('Shooter');
+    handlerLaunchGame();
 };
 
 function handlerBTNtheCage (BTNtheCage){
@@ -222,9 +220,9 @@ function handlerBTNtrivia (BTNtrivia){
 };
 
 function handlerLaunchGame(){
-    if (place = 'cage'){
-        
-    }
+    if (place = 'cage'){this.scene.start('Cage');}
+    else if (place = 'pacman'){this.scene.start('Pacman');}
+    else if (place = 'trivia'){this.scene.start('Trivia');}
 };
 
 
@@ -254,11 +252,13 @@ function moveToTrivia(Player){
 *******************************/
 var Trivia= new Phaser.Scene('Trivia');
 Trivia.preload = function(){
-    
+    this.load.image('background', 'images/background.png');
+    this.load.image('transparentButton', 'images/transparentButton.png');
+    this.load.image('character', 'images/character' + avatarChosen + '.png');   
 };
 
 Trivia.create = function(){
-    
+    this.add.image(400, 300, 'background');
 };
 
 Trivia.update = function(){
@@ -273,11 +273,13 @@ Trivia.update = function(){
 *******************************/
 var Cage= new Phaser.Scene('Cage');
 Cage.preload = function(){
-    
+    this.load.image('background', 'images/background.png');
+    this.load.image('transparentButton', 'images/transparentButton.png');
+    this.load.image('character', 'images/character' + avatarChosen + '.png');
 };
 
 Cage.create = function(){
-    
+        this.add.image(400, 300, 'background');
 };
 
 Cage.update = function(){
@@ -292,11 +294,13 @@ Cage.update = function(){
 *******************************/
 var Pacman= new Phaser.Scene('Pacman');
 Pacman.preload = function(){
-    
+    this.load.image('background', 'images/background.png');
+    this.load.image('transparentButton', 'images/transparentButton.png');
+    this.load.image('character', 'images/character' + avatarChosen + '.png');
 };
 
 Pacman.create = function(){
-    
+    this.add.image(400, 300, 'background');
 };
 
 Pacman.update = function(){
