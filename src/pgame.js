@@ -12,6 +12,8 @@ App.prototype.start = function()
     scenes.push(Map);
     scenes.push(Shooter);
     scenes.push(Trivia);
+    scenes.push(Pacman);
+    scenes.push(Cage);
 
 
     // Game config
@@ -254,15 +256,53 @@ function moveToTrivia(Player){
 /*******************************
 *********- T R I V I A -********
 *******************************/
+Trivia.preload = function(){
+    
+};
+
+Trivia.create = function(){
+    
+};
+
+Trivia.update = function(){
+    
+};
 
 
 
 
+/*******************************
+***********- C A G E -**********
+*******************************/
+Cage.preload = function(){
+    
+};
+
+Cage.create = function(){
+    
+};
+
+Cage.update = function(){
+    
+};
 
 
 
 
+/*******************************
+*********- P A C M A N -********
+*******************************/
+Pacman.preload = function(){
+    
+};
 
+Pacman.create = function(){
+    
+};
+
+Pacman.update = function(){
+    
+};
 
 
 
