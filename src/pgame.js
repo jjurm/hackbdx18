@@ -69,19 +69,19 @@ Map.create= function()
     this.character.setScale(0.2);
 
     // button event
-    var box = this.add.image(30, 30, 'button');
+    var BTNshooter = this.add.image(30, 30, 'button');
     var BTNtheCage = this.add.image(theCage.x, theCage.y, 'transparentButton');
     var BTNpacman = this.add.image(pacman.x, pacman.y, 'transparentButton');
     var BTNtrivia = this.add.image(trivia.x, trivia.y, 'transparentButton');
 
     //  Make them all input enabled
-    box.setInteractive();
+    BTNshooter.setInteractive();
     BTNtheCage.setInteractive();
     BTNpacman.setInteractive();
     BTNtrivia.setInteractive();
 
     //  The images will dispatch a 'clicked' event when they are clicked on
-    box.on('clicked', clickHandler, this);
+    BTNshooter.on('clicked', handlerBTNshooter, this);
     BTNtheCage.on('clicked', handlerBTNtheCage, this);
     BTNpacman.on('clicked', handlerBTNpacman, this);
     BTNtrivia.on('clicked', handlerBTNtrivia, this);
@@ -104,8 +104,7 @@ Map.update= function()
 
 
 //EVENT HANDLERS
-function clickHandler (box)
-{
+function handlerBTNshooter (BTNshooter){
     console.log("clicked");
     this.scene.start('Shooter');
 };
