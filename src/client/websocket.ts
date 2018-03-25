@@ -1,4 +1,5 @@
-import {game} from "./client";
+import {game, KEY_WALKIES_USER_ID} from "./client";
+import {AssignScreenToUserMsg, MessageWrapper, MoveMsg, TestScreenMsg} from "../messages";
 
 export function reconnectWebsocket() {
     let retryTimeout: number;
@@ -28,6 +29,10 @@ function doWebsocketConnection() {
     ws.onopen = event => {
         console.log("Socket connected");
         game.unsuccessfulSocketAttempts = 0;
+        let storedId = localStorage.getItem(KEY_WALKIES_USER_ID);
+        if (storedId) {
+            game.sendMessage(AssignScreenToUserMsg.type, new AssignScreenToUserMsg(storedId));
+        }
     };
     ws.onclose = event => {
         console.error("Socket error");
@@ -40,7 +45,18 @@ function doWebsocketConnection() {
         reconnectWebsocket();
     };
     ws.onmessage = message => {
-        console.log("Got: " + message);
+        let wrapper = JSON.parse(message.data) as MessageWrapper;
+        console.log(wrapper);
+
+        switch (wrapper.type) {
+            case TestScreenMsg.type:
+                console.log("Received ping");
+                break;
+            case MoveMsg.type:
+                let msg = wrapper.message as MoveMsg;
+                bMove(msg.place);
+                break;
+        }
     };
 
     game.ws = ws;

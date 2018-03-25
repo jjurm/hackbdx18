@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="26989910880-6gqi1rdvk9iopklpfk0gn5lk10pbjkoe.apps.googleusercontent.com">
+    <title>Log in | Walkies</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var id = profile.getId();
+            localStorage.setItem("walkiesUserId", id);
+            window.location.href = "/";
+        }
+    </script>
+</head>
+<body>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+</body>
+</html>

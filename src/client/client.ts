@@ -7,11 +7,15 @@ export let game = new Game();
 
 export function startup() {
     reconnectWebsocket();
+
 }
+
+export let KEY_WALKIES_USER_ID = "walkiesUserId";
 
 export function onSignIn(googleUser: any) {
     let profile = googleUser.getBasicProfile();
     let id = profile.getId();
+    localStorage.setItem(KEY_WALKIES_USER_ID, id);
     game.sendMessage(AssignScreenToUserMsg.type, new AssignScreenToUserMsg(id));
 }
 (<any>window).onSignIn = onSignIn;
