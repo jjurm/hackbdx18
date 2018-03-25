@@ -168,7 +168,7 @@ Map.create = function()
     this.character.setScale(0.2);
 
     // buttons
-    BTNshooter = this.add.image(30, 30, 'button');
+    //BTNshooter = this.add.image(30, 30, 'button');
     BTNtheCage = this.add.image(theCage.x, theCage.y, 'transparentButton');
     BTNpacman = this.add.image(pacman.x, pacman.y, 'transparentButton');
     BTNtrivia = this.add.image(trivia.x, trivia.y, 'transparentButton');
