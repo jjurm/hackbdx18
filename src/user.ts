@@ -3,9 +3,11 @@ import {uuidv4} from "./utils";
 export class User {
     public id: string;
     public name: string;
+    public sessionid?: string;
 
-    constructor(name: string) {
-        this.id = uuidv4();
+    constructor(id: string, name: string, sessionid?: string) {
+        this.id = id;
         this.name = name;
+        this.sessionid = sessionid;
     }
 }

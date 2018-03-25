@@ -1,7 +1,13 @@
 import express from "express"
+import {GenericMsg} from "../messages";
+import {processDfRequest} from "./dialogflow";
+import bodyParser = require("body-parser");
 
-let exp = express();
+let app = express();
 let router = express.Router();
+
+app.use(bodyParser.json());
+
 
 /*const static_files = ["bundle.js", "style.css"];
 for (let file of static_files) {
@@ -18,7 +24,15 @@ router.get('/test', (req, res) => {
     })
 });
 
-exp.use('/', router);
-exp.use("/", express.static("src"));
+router.post("/dialogflow", (req, res) => {
+    let request = req.body;
+    console.log(request);
+    let response = processDfRequest(request);
+    console.log(response);
+    res.json(response);
+});
 
-export default exp
+app.use('/', router);
+app.use("/", express.static("src"));
+
+export default app

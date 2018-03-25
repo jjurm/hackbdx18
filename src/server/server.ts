@@ -6,10 +6,11 @@ import {isWhiteSpace} from "tslint";
 import {User} from "../user";
 import {Server} from "./classes";
 
-let server = new Server();
+export let server = new Server();
 
 export function runWebServer() {
     const server = http.createServer(app);
+    //const wss = new WebSocket.Server({server});
     const wss = new WebSocket.Server({server});
 
     wss.on('connection', function connection(conn: any, req) {
@@ -36,7 +37,5 @@ export function runWebServer() {
     });
 
 }
-
-
 
 runWebServer();
