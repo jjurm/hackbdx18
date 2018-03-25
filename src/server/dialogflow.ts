@@ -3,7 +3,7 @@ import {User} from "../user";
 import {createOrGetUser} from "./server";
 import {defaultUserId, userMappings} from "../hackathon";
 import {Client} from "./classes";
-import {MoveMsg, TestScreenMsg} from "../messages";
+import {ChooseAvatarMsg, MoveMsg, TestScreenMsg} from "../messages";
 
 export function processDfRequest(request: any): DFResponse {
 
@@ -42,6 +42,17 @@ export function processDfRequest(request: any): DFResponse {
             else if (count == 1) resp = "Only you are in the room.";
             else resp = "There are " + count + " people in the room.";
             return new DFResponse(resp);
+
+        case "choose_avatar":
+
+            let ordinal = request.result.parameters.ordinal;
+            console.log(ordinal);
+
+            forOwnedScreens(user, client => {
+                client.sendMessage(ChooseAvatarMsg.type, new ChooseAvatarMsg(ordinal));
+            });
+
+            return new DFResponse("You chose avatar "+ordinal);
 
         case "change_name":
             return new DFResponse("Ok, your name is changed");

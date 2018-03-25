@@ -74,6 +74,9 @@ Avatars.preload = function(){
     
 };
 
+var BTNnextAvatar;
+var BTNconfirmAvatar;
+
 Avatars.create = function(){
     //add the images
     this.add.image(400, 300, 'background');
@@ -92,8 +95,8 @@ Avatars.create = function(){
     
     
     //add the buttons
-    var BTNnextAvatar = this.add.image(780, 400, 'transparentButton');
-    var BTNconfirmAvatar = this.add.image(400, 580, 'transparentButton');
+    BTNnextAvatar = this.add.image(780, 400, 'transparentButton');
+    BTNconfirmAvatar = this.add.image(400, 580, 'transparentButton');
     
     //make them interactive
     BTNnextAvatar.setInteractive();
@@ -345,3 +348,19 @@ function bLaunchGame(){
     handlerLaunchGame();
 };
 
+function bChooseAvatar(ordinal) {
+    switch (ordinal) {
+        case "1":
+            handlerBTNnextAvatar.apply(Map, BTNnextAvatar);
+            handlerBTNnextAvatar.apply(Map, BTNnextAvatar);
+            handlerBTNconfirmAvatar.apply(Map, BTNconfirmAvatar);
+            break;
+        case "2":
+            handlerBTNconfirmAvatar.apply(Map, BTNconfirmAvatar);
+            break;
+        case "3":
+            handlerBTNnextAvatar.apply(Map, BTNnextAvatar);
+            handlerBTNconfirmAvatar.apply(Map, BTNconfirmAvatar);
+            break;
+    }
+}

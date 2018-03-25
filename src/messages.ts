@@ -57,3 +57,14 @@ export class MoveMsg extends GenericMsg {
 export class TestScreenMsg extends GenericMsg {
     public static type = "test_screen";
 }
+
+// server to client
+export class ChooseAvatarMsg extends GenericMsg {
+    public static type = "choose_avatar";
+    public ordinal: number;
+
+    constructor(ordinal: number) {
+        super();
+        this.ordinal = ordinal;
+    }
+}

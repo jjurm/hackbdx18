@@ -1,5 +1,5 @@
 import {game, KEY_WALKIES_USER_ID} from "./client";
-import {AssignScreenToUserMsg, MessageWrapper, MoveMsg, TestScreenMsg} from "../messages";
+import {AssignScreenToUserMsg, ChooseAvatarMsg, MessageWrapper, MoveMsg, TestScreenMsg} from "../messages";
 
 export function reconnectWebsocket() {
     let retryTimeout: number;
@@ -48,14 +48,20 @@ function doWebsocketConnection() {
         let wrapper = JSON.parse(message.data) as MessageWrapper;
         console.log(wrapper);
 
+        let msg;
         switch (wrapper.type) {
             case TestScreenMsg.type:
                 console.log("Received ping");
                 break;
             case MoveMsg.type:
-                let msg = wrapper.message as MoveMsg;
+                msg = wrapper.message as MoveMsg;
                 bMove(msg.place);
                 break;
+            case ChooseAvatarMsg.type:
+                msg = wrapper.message as ChooseAvatarMsg;
+                bChooseAvatar(msg.ordinal);
+                break;
+
         }
     };
 
