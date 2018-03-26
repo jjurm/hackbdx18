@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="176px" height="444px" viewBox="0 0 176 444" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#C1EBD0" offset="0%"></stop>
+            <stop stop-color="#95D3DD" offset="100%"></stop>
+        </linearGradient>
+        <path d="M120,41 L163,0 C168.333333,38 169.666667,61 167,69 C164.333333,77 148.666667,67.6666667 120,41 Z" id="path-2"></path>
+        <filter x="-27.9%" y="-7.7%" width="137.2%" height="113.9%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="-9" dy="-1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.0159432212   0 0 0 0 0.0583849376   0 0 0 0 0.0976828231  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <path d="M5,41 L48,0 C53.3333333,38 54.6666667,61 52,69 C49.3333333,77 33.6666667,67.6666667 5,41 Z" id="path-4"></path>
+        <filter x="-27.9%" y="-7.7%" width="137.2%" height="113.9%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="-9" dy="-1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.0159432212   0 0 0 0 0.0583849376   0 0 0 0 0.0976828231  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Characters-done" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2" transform="translate(-413.000000, -196.000000)">
+            <g id="1" transform="translate(413.000000, 197.000000)">
+                <path d="M85,443 C147.666667,403.666667 175.333333,325 168,207 C160.666667,89 133,83 85,189 L36,150 C12,223.333333 1.66666667,264.666667 5,274 C8.33333333,283.333333 13.6666667,276.333333 21,253 C30.3593412,285.813479 37.2282299,305.905073 41.6066662,313.274782 C44.8094131,318.665591 38.5471905,268.90733 41.6066662,270 C43.8250899,270.792294 55.8945553,325.940485 58.8068323,329.058632 C74.2733159,345.618447 96.4001558,389.535341 92,403 C88.5142083,413.666667 86.180875,427 85,443 Z" id="Path-4" fill="#040F19"></path>
+                <path d="M88,203 C146.666667,175.390893 176,144.55756 176,110.5 C176,59.4136606 136.601058,18 88,18 C39.398942,18 0,59.4136606 0,110.5 C0,144.55756 29.3333333,175.390893 88,203 Z" id="Oval-2" fill="url(#linearGradient-1)"></path>
+                <ellipse id="Oval-Copy" fill="#FAFAFA" cx="115.5" cy="103" rx="21.5" ry="31"></ellipse>
+                <ellipse id="Oval-Copy-3" fill="#FAFAFA" cx="62.5" cy="103" rx="21.5" ry="31"></ellipse>
+                <ellipse id="Oval-Copy-2" fill="#040F19" cx="116" cy="114" rx="16" ry="20"></ellipse>
+                <ellipse id="Oval-Copy-4" fill="#040F19" cx="63" cy="114" rx="16" ry="20"></ellipse>
+                <circle id="Oval-Copy-2" fill="#FFFFFF" cx="122.5" cy="100.5" r="4.5"></circle>
+                <circle id="Oval-Copy-5" fill="#FFFFFF" cx="69.5" cy="100.5" r="4.5"></circle>
+                <g id="Path-3">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                </g>
+                <g id="Path-3-Copy" transform="translate(29.166667, 35.884615) scale(-1, 1) translate(-29.166667, -35.884615) ">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                    <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-4"></use>
+                </g>
+                <polygon id="Path-5" fill="#FFFFFF" points="77 160 100 160 88.5 175"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

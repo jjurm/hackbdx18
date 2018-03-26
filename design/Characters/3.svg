@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="356px" height="403px" viewBox="0 0 356 403" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F3DCFB" offset="0%"></stop>
+            <stop stop-color="#679FE4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="97.8583984%" y1="1.91080729%" x2="1.97021484%" y2="97.5579427%" id="linearGradient-2">
+            <stop stop-color="#F93760" offset="0%"></stop>
+            <stop stop-color="#FA6D41" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#6ACBE0" offset="0%"></stop>
+            <stop stop-color="#6859EA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Characters-done" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3" transform="translate(-322.000000, -160.000000)">
+            <g transform="translate(322.000000, 160.000000)">
+                <path d="M179,240 C237.666667,212.390893 267,181.55756 267,147.5 C267,96.4136606 227.601058,55 179,55 C130.398942,55 91,96.4136606 91,147.5 C91,181.55756 120.333333,212.390893 179,240 Z" id="Oval-2" fill="url(#linearGradient-1)"></path>
+                <path d="M179,264 C237.666667,236.390893 267,205.55756 267,171.5 C267,120.413661 227.601058,79 179,79 C130.398942,79 91,120.413661 91,171.5 C91,205.55756 120.333333,236.390893 179,264 Z" id="Oval-2" fill="url(#linearGradient-1)"></path>
+                <path d="M179,294 C237.666667,266.390893 267,235.55756 267,201.5 C267,150.413661 227.601058,109 179,109 C130.398942,109 91,150.413661 91,201.5 C91,235.55756 120.333333,266.390893 179,294 Z" id="Oval-2" fill="url(#linearGradient-1)"></path>
+                <path d="M179,323 C237.666667,295.390893 267,264.55756 267,230.5 C267,179.413661 227.601058,138 179,138 C130.398942,138 91,179.413661 91,230.5 C91,264.55756 120.333333,295.390893 179,323 Z" id="Oval-2" fill="url(#linearGradient-1)"></path>
+                <path d="M179,356 C237.666667,328.390893 267,297.55756 267,263.5 C267,212.413661 227.601058,171 179,171 C130.398942,171 91,212.413661 91,263.5 C91,297.55756 120.333333,328.390893 179,356 Z" id="Oval-2" fill="url(#linearGradient-1)"></path>
+                <path d="M179,356 C237.666667,328.390893 267,297.55756 267,263.5 C267,212.413661 227.601058,171 179,171 C130.398942,171 91,212.413661 91,263.5 C91,297.55756 120.333333,328.390893 179,356 Z" id="Oval-2" fill="url(#linearGradient-1)"></path>
+                <path d="M179,356 C237.666667,328.390893 267,297.55756 267,263.5 C267,212.413661 227.601058,171 179,171 C130.398942,171 91,212.413661 91,263.5 C91,297.55756 120.333333,328.390893 179,356 Z" id="Oval-2" fill="url(#linearGradient-1)"></path>
+                <ellipse id="Oval-Copy" fill="#FAFAFA" cx="206.5" cy="140" rx="21.5" ry="31"></ellipse>
+                <path d="M10.227644,156.497451 C-4.43902265,175.830785 -1.77235598,187.830785 18.227644,192.497451 C29.4529561,195.116691 94.1222412,169.011834 125,210 C176.644024,278.553998 198.363342,424.530368 190.227644,399.497451 C177.227644,359.497451 188.227644,-15.5025488 143.227644,0.497451183 C113.227644,11.1641178 68.8943107,63.1641178 10.227644,156.497451 Z" id="Path-7" fill="url(#linearGradient-2)" style="mix-blend-mode: color;"></path>
+                <path d="M174.307692,156.497451 C159.641026,175.830785 162.307692,187.830785 182.307692,192.497451 C193.533004,195.116691 258.20229,169.011834 289.080048,210 C340.724072,278.553998 362.44339,424.530368 354.307692,399.497451 C341.307692,359.497451 352.307692,-15.5025488 307.307692,0.497451183 C277.307692,11.1641178 232.974359,63.1641178 174.307692,156.497451 Z" id="Path-7" fill="url(#linearGradient-3)" style="mix-blend-mode: color;" transform="translate(260.485146, 201.175937) scale(-1, 1) translate(-260.485146, -201.175937) "></path>
+                <ellipse id="Oval-Copy-3" fill="#FAFAFA" cx="153.5" cy="140" rx="21.5" ry="31"></ellipse>
+                <ellipse id="Oval-Copy-2" fill="#040F19" cx="207" cy="151" rx="16" ry="20"></ellipse>
+                <ellipse id="Oval-Copy-4" fill="#040F19" cx="154" cy="151" rx="16" ry="20"></ellipse>
+                <circle id="Oval-Copy-2" fill="#FFFFFF" cx="213.5" cy="137.5" r="4.5"></circle>
+                <circle id="Oval-Copy-5" fill="#FFFFFF" cx="160.5" cy="137.5" r="4.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
